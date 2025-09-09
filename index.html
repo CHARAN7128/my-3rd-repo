@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMW Ultimate Driving Machine - Premium Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-content">
+            <div class="bmw-logo-loader">BMW</div>
+            <div class="loading-text">The Ultimate Driving Machine</div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Dashboard -->
+    <div class="dashboard-container">
+        <!-- Header Section -->
+        <header class="header">
+            <nav class="nav">
+                <div class="nav-logo">
+                    <span class="bmw-logo">BMW</span>
+                </div>
+                <div class="nav-menu">
+                    <a href="#models" class="nav-link active">Models</a>
+                    <a href="#technology" class="nav-link">Technology</a>
+                    <a href="#performance" class="nav-link">Performance</a>
+                    <a href="#interior" class="nav-link">Interior</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+                <div class="nav-controls">
+                    <button id="themeToggle" class="theme-toggle">🌙</button>
+                </div>
+            </nav>
+            
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">The Ultimate Driving Machine</h1>
+                    <p class="hero-subtitle">Experience BMW's legacy of luxury, performance, and innovation since 1916</p>
+                    <button class="btn btn--primary hero-cta">Explore Models</button>
+                </div>
+                <div class="hero-background">
+                    <div class="geometric-pattern"></div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Dashboard Grid -->
+        <main class="dashboard-grid">
+            <!-- Models Showcase Panel -->
+            <section id="models" class="dashboard-panel models-panel">
+                <div class="panel-header">
+                    <h2>BMW Model Showcase</h2>
+                    <div class="panel-controls">
+                        <button class="btn btn--secondary" id="compareBtn">Compare Models</button>
+                    </div>
+                </div>
+                <div class="models-grid">
+                    <div class="model-selector">
+                        <div class="selected-model" id="selectedModel">
+                            <div class="model-image">
+                                <img src="https://pplx-res.cloudinary.com/image/upload/v1757277856/pplx_project_search_images/dbc35bb1b3542c424b0961707ee116345c2b05ef.png" alt="BMW X7" id="selectedModelImage">
+                            </div>
+                            <div class="model-details">
+                                <h3 id="selectedModelName">BMW X7</h3>
+                                <div class="spec-grid">
+                                    <div class="spec-item">
+                                        <span class="spec-label">Power</span>
+                                        <span class="spec-value" id="selectedPower">375 hp</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <span class="spec-label">0-60 mph</span>
+                                        <span class="spec-value" id="selectedAccel">4.7 sec</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <span class="spec-label">Top Speed</span>
+                                        <span class="spec-value" id="selectedSpeed">155 mph</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <span class="spec-label">Price</span>
+                                        <span class="spec-value" id="selectedPrice">$131,000</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="model-list">
+                            <div class="model-item active" data-model="0">BMW X7</div>
+                            <div class="model-item" data-model="1">BMW M3 Competition</div>
+                            <div class="model-item" data-model="2">BMW M5 Competition</div>
+                            <div class="model-item" data-model="3">BMW 7 Series</div>
+                            <div class="model-item" data-model="4">BMW i5 eDrive40</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Performance Metrics Panel -->
+            <section id="performance" class="dashboard-panel performance-panel">
+                <div class="panel-header">
+                    <h2>Performance Metrics</h2>
+                </div>
+                <div class="performance-grid">
+                    <div class="gauge-container">
+                        <div class="gauge speedometer">
+                            <div class="gauge-label">Speed (MPH)</div>
+                            <div class="gauge-circle">
+                                <svg class="gauge-svg" viewBox="0 0 200 200">
+                                    <circle cx="100" cy="100" r="80" fill="none" stroke="var(--color-border)" stroke-width="8"/>
+                                    <circle cx="100" cy="100" r="80" fill="none" stroke="#1C69D4" stroke-width="8" 
+                                            stroke-linecap="round" class="gauge-progress" id="speedGauge"/>
+                                </svg>
+                                <div class="gauge-value" id="speedValue">0</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gauge-container">
+                        <div class="gauge power-meter">
+                            <div class="gauge-label">Power (HP)</div>
+                            <div class="gauge-circle">
+                                <svg class="gauge-svg" viewBox="0 0 200 200">
+                                    <circle cx="100" cy="100" r="80" fill="none" stroke="var(--color-border)" stroke-width="8"/>
+                                    <circle cx="100" cy="100" r="80" fill="none" stroke="#1C69D4" stroke-width="8" 
+                                            stroke-linecap="round" class="gauge-progress" id="powerGauge"/>
+                                </svg>
+                                <div class="gauge-value" id="powerValue">0</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="performance-stats">
+                        <div class="stat-item">
+                            <div class="stat-label">Efficiency Rating</div>
+                            <div class="stat-bar">
+                                <div class="stat-progress" id="efficiencyBar">85%</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Acceleration Timer</div>
+                            <div class="stat-value" id="accelTimer">3.2s</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Luxury Interior Features Panel -->
+            <section id="interior" class="dashboard-panel interior-panel">
+                <div class="panel-header">
+                    <h2>Luxury Interior Features</h2>
+                </div>
+                <div class="interior-grid">
+                    <div class="feature-card" data-feature="idrive">
+                        <div class="feature-image">
+                            <img src="https://pplx-res.cloudinary.com/image/upload/v1757394463/pplx_project_search_images/19f318c62b3270a8a3ff848a0f0fe12ef3287650.png" alt="BMW iDrive 8">
+                        </div>
+                        <div class="feature-content">
+                            <h3>BMW iDrive 8</h3>
+                            <p>Curved digital display with intuitive controls</p>
+                        </div>
+                    </div>
+                    <div class="feature-card" data-feature="seats">
+                        <div class="feature-image">
+                            <img src="https://pplx-res.cloudinary.com/image/upload/v1757394463/pplx_project_search_images/5e0860ceaa3cd904d9277328cd7ae96c001cc509.png" alt="Premium Seats">
+                        </div>
+                        <div class="feature-content">
+                            <h3>Premium Nappa Leather</h3>
+                            <p>Hand-crafted luxury seating with diamond quilting</p>
+                        </div>
+                    </div>
+                    <div class="feature-card" data-feature="gesture">
+                        <div class="feature-icon">✋</div>
+                        <div class="feature-content">
+                            <h3>Gesture Control</h3>
+                            <p>Control volume, calls, and navigation with hand movements</p>
+                        </div>
+                    </div>
+                    <div class="feature-card" data-feature="audio">
+                        <div class="feature-icon">🔊</div>
+                        <div class="feature-content">
+                            <h3>Harman Kardon Surround</h3>
+                            <p>Premium audio system with 16 speakers</p>
+                        </div>
+                    </div>
+                    <div class="feature-card" data-feature="skylounge">
+                        <div class="feature-icon">🌟</div>
+                        <div class="feature-content">
+                            <h3>Panoramic Sky Lounge</h3>
+                            <p>LED roof with color-changing ambient lighting</p>
+                        </div>
+                    </div>
+                    <div class="feature-card" data-feature="digitalkey">
+                        <div class="feature-icon">📱</div>
+                        <div class="feature-content">
+                            <h3>BMW Digital Key Plus</h3>
+                            <p>Smartphone key with sharing capabilities</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Technology Center Panel -->
+            <section id="technology" class="dashboard-panel technology-panel">
+                <div class="panel-header">
+                    <h2>Technology Center</h2>
+                </div>
+                <div class="technology-grid">
+                    <div class="tech-card" data-tech="neue">
+                        <div class="tech-icon">🔋</div>
+                        <div class="tech-content">
+                            <h3>Neue Klasse Platform</h3>
+                            <p>Next-generation EV architecture with 400+ mile range</p>
+                            <div class="tech-progress">
+                                <div class="progress-bar" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tech-card" data-tech="connected">
+                        <div class="tech-icon">📡</div>
+                        <div class="tech-content">
+                            <h3>BMW ConnectedDrive</h3>
+                            <p>Seamless smartphone integration with real-time updates</p>
+                            <div class="tech-progress">
+                                <div class="progress-bar" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tech-card" data-tech="assistant">
+                        <div class="tech-icon">🤖</div>
+                        <div class="tech-content">
+                            <h3>Driving Assistant Pro</h3>
+                            <p>Highway Assistant with hands-free driving up to 85 mph</p>
+                            <div class="tech-progress">
+                                <div class="progress-bar" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tech-card" data-tech="hud">
+                        <div class="tech-icon">👁️</div>
+                        <div class="tech-content">
+                            <h3>BMW Head-Up Display</h3>
+                            <p>Augmented reality navigation projected on windscreen</p>
+                            <div class="tech-progress">
+                                <div class="progress-bar" style="width: 95%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="idrive-simulator">
+                    <div class="simulator-title">Virtual iDrive Simulator</div>
+                    <div class="idrive-interface">
+                        <div class="idrive-screen">
+                            <div class="screen-content" id="idriveContent">
+                                <div class="menu-item active">Navigation</div>
+                                <div class="menu-item">Media</div>
+                                <div class="menu-item">Climate</div>
+                                <div class="menu-item">Vehicle</div>
+                            </div>
+                        </div>
+                        <div class="idrive-controller" id="idriveController">
+                            <div class="controller-ring"></div>
+                            <div class="controller-center"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal for Model Comparison -->
+    <div id="compareModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Model Comparison</h2>
+                <button class="modal-close" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="comparison-grid">
+                    <div class="comparison-header">
+                        <div>Feature</div>
+                        <div>BMW M3</div>
+                        <div>BMW M5</div>
+                        <div>BMW X7</div>
+                    </div>
+                    <div class="comparison-row">
+                        <div>Power</div>
+                        <div>523 hp</div>
+                        <div>750 hp</div>
+                        <div>375 hp</div>
+                    </div>
+                    <div class="comparison-row">
+                        <div>0-60 mph</div>
+                        <div>3.4 sec</div>
+                        <div>3.2 sec</div>
+                        <div>4.7 sec</div>
+                    </div>
+                    <div class="comparison-row">
+                        <div>Top Speed</div>
+                        <div>180 mph</div>
+                        <div>190 mph</div>
+                        <div>155 mph</div>
+                    </div>
+                    <div class="comparison-row">
+                        <div>Price</div>
+                        <div>$87,700</div>
+                        <div>$199,000</div>
+                        <div>$131,000</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
